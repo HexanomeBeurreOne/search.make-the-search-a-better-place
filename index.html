@@ -17,20 +17,19 @@
         <input type="text" class="search" ref="text"/>
       </form>
     </div>
+    <div class="result"></div>
   </body>
   <script type="text/jsx" src="js/search.js"></script>
   <script>
     var result = document.querySelector('.result');
-    console.log(result);
     var apiResult = "no result";
     $( ".result" ).text( apiResult );
     $.ajax({
       method: "GET",
-      url: "http://localhost:3000/sayHello",
+      url: "http://localhost:3000/search?q=tesla",
     })
       .done(function( msg ) {
         console.log(msg);
-        alert( "Data Saved: " + msg );
         $( ".result" ).text( msg );
       });
 
